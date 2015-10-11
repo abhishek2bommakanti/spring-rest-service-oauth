@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -57,6 +58,7 @@ public class OAuth2ServerConfiguration {
 			// @formatter:off
 			http
 				.authorizeRequests()
+					.antMatchers(HttpMethod.POST, "/users").anonymous()
 					.antMatchers("/users").hasRole("ADMIN")
 					.antMatchers("/greeting").authenticated();
 			// @formatter:on
