@@ -35,6 +35,7 @@ public class CustomConnectionSignUp implements ConnectionSignUp {
 				User userToCreate = new User();
 				userToCreate.setName(userProfile.getName());
 				userToCreate.setLogin(userProfile.getEmail());
+				userToCreate.setPassword("custompassword");
 				
 				User createdUser = userRepository.save(userToCreate);
 				return createdUser.getId().toString();

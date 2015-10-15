@@ -1,3 +1,6 @@
+create table UserConnection (userId varchar(255),providerId varchar(255),providerUserId varchar(255),rank int,displayName varchar(255),profileUrl varchar(512),imageUrl varchar(512),accessToken varchar(512),secret varchar(512),refreshToken varchar(512),expireTime bigint,primary key (userId, providerId, providerUserId));
+create unique index UserConnectionRank on UserConnection(userId, providerId, rank);
+
 insert into user(id, name, login, password) values (1,'Roy','roy@spring.com','spring');
 insert into user(id, name, login, password) values (2,'Craig','craig@spring.com','spring');
 insert into user(id, name, login, password) values (3,'Greg','greg@spring.com','spring');

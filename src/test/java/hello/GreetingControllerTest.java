@@ -103,12 +103,13 @@ public class GreetingControllerTest {
 
 		// @formatter:on
 
-		return content.substring(17, 53);
+		//return content.substring(17, 53);
+		return content.substring(22, 58);
 	}
 
 	@Test
 	public void greetingAuthorized() throws Exception {
-		String accessToken = getAccessToken("roy", "spring");
+		String accessToken = getAccessToken("roy@spring.com", "spring");
 
 		// @formatter:off
 		mvc.perform(get("/greeting")
@@ -139,7 +140,7 @@ public class GreetingControllerTest {
 	public void usersEndpointAuthorized() throws Exception {
 		// @formatter:off
 		mvc.perform(get("/users")
-				.header("Authorization", "Bearer " + getAccessToken("roy", "spring")))
+				.header("Authorization", "Bearer " + getAccessToken("roy@spring.com", "spring")))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$", hasSize(3)));
 		// @formatter:on
@@ -149,7 +150,7 @@ public class GreetingControllerTest {
 	public void usersEndpointAccessDenied() throws Exception {
 		// @formatter:off
 		mvc.perform(get("/users")
-				.header("Authorization", "Bearer " + getAccessToken("craig", "spring")))
+				.header("Authorization", "Bearer " + getAccessToken("craig@spring.com", "spring")))
 				.andExpect(status().is(403));
 		// @formatter:on
 	}
