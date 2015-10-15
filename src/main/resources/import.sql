@@ -1,6 +1,6 @@
-insert into user(id, name, login, password) values (1,'Roy','roy','spring');
-insert into user(id, name, login, password) values (2,'Craig','craig','spring');
-insert into user(id, name, login, password) values (3,'Greg','greg','spring');
+insert into user(id, name, login, password) values (1,'Roy','roy@spring.com','spring');
+insert into user(id, name, login, password) values (2,'Craig','craig@spring.com','spring');
+insert into user(id, name, login, password) values (3,'Greg','greg@spring.com','spring');
  
 insert into role(id, name) values (1,'ROLE_USER');
 insert into role(id, name) values (2,'ROLE_ADMIN');
